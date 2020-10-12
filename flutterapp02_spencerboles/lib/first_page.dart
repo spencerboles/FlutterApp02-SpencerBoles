@@ -21,10 +21,10 @@ class _MyFirstPageState extends State<MyFirstPage> {
         return () { 
           //needed to manage state of statefull widget --> allows click me button to update on click
           setState(() {
-            
-          
+           //increments count when button pressed 
           _count++;
-          print('Button Pressed as anon func now running'); 
+          print('Button Pressed as anon func now running');  
+          //update button message
           _msg1 = 'Clicked $_count';
           });
         };
@@ -40,8 +40,10 @@ class _MyFirstPageState extends State<MyFirstPage> {
        if(_enabled)
       {
         return () { 
-          setState(() {
-            _count = 0; 
+          setState(() { 
+            //reset press count to 0
+            _count = 0;  
+            //display zero count message
             _msg1 = 'Click Me';
             }
           );
@@ -72,11 +74,13 @@ class _MyFirstPageState extends State<MyFirstPage> {
                       setState(() {
                         _enabled = onChangedValue;
                         if (_enabled) { 
-                          //_count++; 
-                          _count == 0?_msg1 = 'Click Me':_msg1 = 'Clicked $_count'; 
+                          //check if button count message is zero
+                          _count == 0?_msg1 = 'Click Me':_msg1 = 'Clicked $_count';  
+                          //initalize reset button message
                           _resetMsg = 'Reset';
                           print('_enabled is true');
-                        } else {
+                        } else { 
+                          //set messages to '' so text cannot be seen
                           _msg1 = ''; 
                           _resetMsg = '';
                           print('_enabled is false');
